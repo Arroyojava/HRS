@@ -1,0 +1,98 @@
+INSERT INTO products_services (availability, price, category, description, image_url, name)
+VALUES
+    (1, 299.99, 'Appliances', 'High-quality stainless steel kitchen sink', 'http://example.com/sink.jpg', 'Stainless Steel Sink'),
+    (1, 150.00, 'Lighting', 'Modern LED ceiling light for kitchens', 'http://example.com/light.jpg', 'LED Ceiling Light'),
+    (1, 450.00, 'Cabinets', 'Wooden kitchen cabinet with glass doors', 'http://example.com/cabinet.jpg', 'Wooden Cabinet'),
+    (1, 200.00, 'Countertops', 'Granite kitchen countertop in black', 'http://example.com/countertop.jpg', 'Granite Countertop'),
+    (1, 120.00, 'Bathroom Fixtures', 'High-end faucet with modern design', 'http://example.com/faucet.jpg', 'Modern Faucet'),
+    (1, 85.00, 'Plumbing', 'Durable stainless steel pipes for any use', 'http://example.com/pipes.jpg', 'Stainless Steel Pipes'),
+    (1, 75.00, 'Lighting', 'Vintage wall lamp for kitchen', 'http://example.com/walllamp.jpg', 'Vintage Wall Lamp'),
+    (1, 250.00, 'Appliances', 'Energy efficient dishwasher with eco mode', 'http://example.com/dishwasher.jpg', 'Eco Dishwasher'),
+    (1, 300.00, 'Cabinets', 'Freestanding kitchen island with oak top', 'http://example.com/island.jpg', 'Kitchen Island'),
+    (1, 180.00, 'Countertops', 'Marble backsplash for kitchen aesthetics', 'http://example.com/backsplash.jpg', 'Marble Backsplash');
+
+INSERT INTO appliances (product_service_id, brand, delivery_method, model, website)
+VALUES
+    (1, 'Generic', 'Home Delivery', 'Model SS1', 'http://example.com'),
+    (8, 'EcoBrand', 'Home Delivery', 'EcoWash 3000', 'http://example.com');
+
+INSERT INTO lighting (product_service_id, brand, model, website)
+VALUES
+    (2, 'BrightTech', 'LED8000', 'http://example.com'),
+    (7, 'OldLight', 'Vintage300', 'http://example.com');
+
+INSERT INTO cabinets (product_service_id, address, brand, model, phone, website)
+VALUES
+    (3, '123 Warehouse St', 'WoodCraft', 'Cabinet9000', '123-456-7890', 'http://example.com'),
+    (9, '123 Warehouse St', 'IslandBest', 'Island8000', '123-456-7890', 'http://example.com');
+
+INSERT INTO countertops_tiles (product_service_id, brand, material_type, model, website)
+VALUES
+    (4, 'StoneWorks', 'Granite', 'GraniteBlack', 'http://example.com'),
+    (10, 'ElegantMarble', 'Marble', 'MarbleLux', 'http://example.com');
+
+INSERT INTO bathroom_fixtures (product_service_id, brand, category, model, website)
+VALUES
+    (5, 'ModernTech', 'Faucets', 'FaucetX100', 'http://example.com');
+
+INSERT INTO plumbing (product_service_id, brand, model, website)
+VALUES
+    (6, 'PipeSafe', 'Pipe2000', 'http://example.com');
+
+
+--
+
+INSERT INTO customers (address, email, first_name, last_name, phone_number, preferences)
+VALUES
+    ('128 Elm St', 'customer1@example.com', 'Alice', 'Brown', '555-2233', 'Prefer email contact'),
+    ('129 Elm St', 'customer2@example.com', 'Bob', 'Green', '555-3344', 'Likes quick service'),
+    ('130 Elm St', 'customer3@example.com', 'Carol', 'Blue', '555-4455', 'Prefers eco-friendly products'),
+    ('131 Elm St', 'customer4@example.com', 'David', 'Black', '555-5566', 'Needs weekend appointments'),
+    ('132 Elm St', 'customer5@example.com', 'Eve', 'Red', '555-6677', 'Looking for budget options');
+
+INSERT INTO locations (address, name, phone_number)
+VALUES
+    ('500 Central Ave', 'Main Office', '555-1010'),
+    ('502 Central Ave', 'Warehouse #1', '555-1020'),
+    ('504 Central Ave', 'Warehouse #2', '555-1030'),
+    ('506 Central Ave', 'Showroom', '555-1040'),
+    ('508 Central Ave', 'Service Center', '555-1050');
+
+INSERT INTO employees (location_id, address, email, first_name, last_name, phone_number, position, skills)
+VALUES
+    (1, '123 Elm St', 'john.doe@example.com', 'John', 'Doe', '555-1234', 'Installer', 'Installation, Repair'),
+    (1, '124 Elm St', 'jane.doe@example.com', 'Jane', 'Doe', '555-5678', 'Sales', 'Customer Service, Sales Expertise'),
+    (1, '125 Elm St', 'mike.smith@example.com', 'Mike', 'Smith', '555-8765', 'Project Manager', 'Management, Planning'),
+    (1, '126 Elm St', 'lisa.jones@example.com', 'Lisa', 'Jones', '555-4321', 'Designer', 'Design, Creativity'),
+    (1, '127 Elm St', 'gary.white@example.com', 'Gary', 'White', '555-1122', 'Technician', 'Technical Support, Maintenance');
+
+
+INSERT INTO orders (delivery_charge, installation_charge, start_date, end_date, total_price, assigned_employee_id, customer_id, status)
+VALUES
+    (50.00, 200.00, '2024-04-20', '2024-04-25', 1250.00, 1, 1, 'Processing'),
+    (0.00, 150.00, '2024-04-22', '2024-04-27', 850.00, 2, 2, 'Completed'),
+    (75.00, 300.00, '2024-04-23', '2024-04-30', 2200.00, 3, 3, 'Scheduled'),
+    (20.00, 250.00, '2024-04-25', null, 1900.00, 4, 4, 'Pending'),
+    (0.00, 100.00, '2024-04-28', '2024-05-03', 1600.00, 5, 5, 'Completed');
+
+INSERT INTO deliveries (delivery_date, order_id, delivery_status)
+VALUES
+    ('2024-04-21', 1, 'Delivered'),
+    ('2024-04-23', 2, 'Delivered'),
+    ('2024-04-24', 3, 'Scheduled'),
+    ('2024-04-26', 4, 'Pending'),
+    ('2024-04-29', 5, 'Delivered');
+
+
+INSERT INTO order_products_services (order_id, product_service_id)
+VALUES
+    (1, 1),
+    (1, 3),
+    (2, 2),
+    (2, 4),
+    (3, 5),
+    (3, 6),
+    (4, 7),
+    (4, 8),
+    (5, 9),
+    (5, 10);
