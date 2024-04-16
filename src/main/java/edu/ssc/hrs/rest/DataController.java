@@ -1,17 +1,10 @@
 package edu.ssc.hrs.rest;
 
-import edu.ssc.hrs.entity.Customer;
-import edu.ssc.hrs.entity.Location;
 import edu.ssc.hrs.entity.service.*;
-import edu.ssc.hrs.utils.JsonService;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.List;
 
 @Controller
 @RequestMapping("/")
@@ -22,7 +15,7 @@ public class DataController {
     private final EmployeeService employeeService;
     private final OrderService orderService;
 
-    public DataController(CustomerService customerService, LocationService locationService, JdbcTemplate jdbcTemplate, InventoryService inventroyService, InventoryService inventoryService, EmployeeService employeeService, OrderService orderService) {
+    public DataController(CustomerService customerService, LocationService locationService, InventoryService inventoryService, EmployeeService employeeService, OrderService orderService) {
         this.customerService = customerService;
         this.locationService = locationService;
         this.inventoryService = inventoryService;
@@ -39,6 +32,7 @@ public class DataController {
         model.addAttribute("orderCount", orderService.count());
         return "index";
     }
+
 
 //    @PostMapping("/upload")
 //    public String uploadAll() {
