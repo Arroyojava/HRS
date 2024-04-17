@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
-    <title>HRS - Home Modernization</title>
+    <title>Home Renovation System</title>
 </head>
 <body>
 <nav class="container-fluid">
     <ul>
-        <li><strong>HRS - Home Modernization</strong></li>
+        <li><strong>HRS - Home Renovation System</strong></li>
     </ul>
     <ul>
         <li><a href="site.html">Home</a></li>
-        <li><a href="faq.html">FAQ</a></li>
         <li><a href="about-us.html">About Us</a></li>
+        <li><a href="faq.html">FAQ</a></li>
         <li><a href="contact_us.html" role="button">Contact Us</a></li>
     </ul>
 </nav>
@@ -27,10 +27,11 @@
                 <h3>Kitchen Upgrades</h3>
             </hgroup>
             <figure style="margin-bottom: 0;">
-                <img src="../../static/kitchen.jpg" alt="Kitchen" width= "100%">
+                <img src="../../static/kitchen.jpg" alt="Kitchen" width="100%">
                 <figcaption><a href="../../static/kitchen.jpg" target="_blank">Modern Kitchen</a></figcaption>
             </figure>
-            <p>We specialize in the design and modernization of kitchens, transforming ordinary spaces into works of art. Our kitchens feature modern design.</p>
+            <p>We specialize in the design and modernization of kitchens, transforming ordinary spaces into works of
+                art. Our kitchens feature modern design.</p>
         </section>
 
         <section style="flex-basis: 45%; margin-bottom: 20px">
@@ -41,60 +42,37 @@
                 <img src="../../static/bathroom.jpg" alt="Bathrooms" width="100%">
                 <figcaption><a href="../../static/kitchen.jpg" target="_blank">Modern Bathrooms</a></figcaption>
             </figure>
-            <p>We specialize in the design and modernization of bathrooms, blending comfort, style, and modern technology into each space.</p>
+            <p>We specialize in the design and modernization of bathrooms, blending comfort, style, and modern
+                technology into each space.</p>
         </section>
 
-        <div style="flex-basis: 100%; display: flex; gap: 20px;">
-            <section style="flex-grow: 1; background-color: #222; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,.8); box-sizing: border-box; border-radius: 10px; overflow: hidden;">
-                <div class="order-tracking" style="color: #fff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; flex-grow: 1;">
-                    <h4 style="margin-bottom: 0.5em;">Track Your Order</h4>
-                    <p style="margin-bottom: 1em;">Enter your order ID to track delivery status.</p>
-                    <input type="text" id="order-id" name="order-id" placeholder="Order ID" style="width: 100%; padding: 12px; margin-bottom: 20px; background-color: #333; border: 2px solid #444; color: #ddd; border-radius: 5px;">
-                    <button type="button" style="width: 100%; background-color: #0056b3; color: white; padding: 12px; border: none; cursor: pointer; border-radius: 5px; transition: background-color 0.3s;">Track Delivery</button>
-                </div>
-            </section>
-
-            <section style="flex-grow: 1; background-color: #222; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,.8); box-sizing: border-box; border-radius: 10px; overflow: hidden; display: flex;">
-                <div class="create-order" style="color: #fff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; flex-direction: column;">
-                    <h4 style="margin-bottom: 0.5em; ">Create Order</h4>
-                    <p style="margin-bottom: 1em;">Select products/services and place an order.</p>
-                    <button type="button" style="width: 100%; background-color: #28a745; color: white; padding: 12px; border: none; cursor: pointer; border-radius: 5px; transition: background-color 0.3s; margin-top: auto;">Place Order</button>
-                </div>
-            </section>
-        </div>
-
-        <style>
-            button:hover {
-                filter: brightness(85%);
-            }
-
-            input:focus {
-                border-color: #555;
-                outline: none;
-            }
-        </style>
     </div>
 
 
 </main>
-<section aria-label="Subscribe example">
-    <div class="container">
-        <article style="margin: 0; padding-top: 0; padding-bottom: 20px;">
-            <hgroup>
-                <h2>Subscribe to Us</h2>
-                <h3>Stay Updated with Our Latest News</h3>
-            </hgroup>
-            <form class="grid">
-                <input type="text" id="firstname" name="firstname" placeholder="Your Name" aria-label="Your Name" required="">
-                <input type="email" id="email" name="email" placeholder="Your Email" aria-label="Your Email" required="">
-                <button type="submit" onclick="event.preventDefault()">Subscribe</button>
-            </form>
-        </article>
-    </div>
-</section>
+
+<div class="container">
+    <article style="margin: 0; padding-top: 0; padding-bottom: 20px;">
+        <hgroup>
+            <h2>Subscribe to Us</h2>
+            <h3>Stay Updated with Our Latest News</h3>
+        </hgroup>
+        <form class="grid">
+            <input type="text" id="firstname" name="firstname" placeholder="Your Name" aria-label="Your Name"
+                   required="">
+            <input type="email" id="email" name="email" placeholder="Your Email" aria-label="Your Email"
+                   required="">
+            <button type="submit" onclick="event.preventDefault()">Subscribe</button>
+        </form>
+    </article>
+</div>
+
 <footer class="container">
     <small><a href="">Privacy Policy</a> • <a href="">Terms of Use</a></small>
 </footer>
 
 </body>
 </html>
+
+
+
