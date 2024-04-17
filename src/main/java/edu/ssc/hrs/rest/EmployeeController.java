@@ -1,6 +1,7 @@
 package edu.ssc.hrs.rest;
 
 import edu.ssc.hrs.entity.Customer;
+import edu.ssc.hrs.entity.Employee;
 import edu.ssc.hrs.entity.service.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -49,12 +50,37 @@ public class EmployeeController {
         return "management-panels/customer-management";
     }
 
+    @GetMapping("customers/edit/{id}")
+    public String showEditCustomerForm(@PathVariable Long id, Model model) {
+        Customer customer = customerService.getCustomerById(id);
+        model.addAttribute("customer", customer);
+        return "edit-customer-form";
+    }
+
+    @PostMapping("customers/update")
+    public String updateCustomer(@ModelAttribute("customer") Customer customer) {
+        customerService.updateCustomer(customer);
+        return "redirect:/employee/customers";
+    }
+
     @GetMapping("/employees")
-    public String manageSuppliers(Model model) {
+    public String manageEmployees(Model model) {
         model.addAttribute("employeeList", employeeService.findAll());
         return "management-panels/employees-management";
     }
 
+    @GetMapping("/employees/edit/{id}")
+    public String showEditEmployeeForm(@PathVariable Long id, Model model) {
+        Employee employee = employeeService.getEmployeeById(id);
+        model.addAttribute("employee", employee);
+        return "/edit-employee-form";
+    }
+
+    @PostMapping("/employees/update")
+    public String updateEmployee(@ModelAttribute("employee") Employee employee) {
+        employeeService.updateEmployee(employee);
+        return "redirect:/employee/employees";
+    }
 
     @GetMapping("/locations")
     public String manageLocations(Model model) {

@@ -1,5 +1,6 @@
 package edu.ssc.hrs.entity.service;
 
+import edu.ssc.hrs.entity.Customer;
 import edu.ssc.hrs.entity.Employee;
 import edu.ssc.hrs.entity.repository.EmployeeRepository;
 import org.springframework.stereotype.Service;
@@ -34,5 +35,27 @@ public class EmployeeService {
 
     public void deleteById(Long id) {
         employeeRepository.deleteById(id);
+    }
+
+    public Employee getEmployeeById(Long id) {
+        Optional<Employee> employeeOptional = employeeRepository.findById(id);
+
+        if (employeeOptional.isPresent()) {
+            return employeeOptional.get();
+        } else {
+            throw new RuntimeException("Employee not found with ID: " + id);
+        }
+    }
+
+    // Update a customer
+    public void updateEmployee(Employee employee) {
+        // Check if the customer exists in the database
+        if (employeeRepository.existsById(employee.getEmployeeID())) {
+            // Update the customer details
+            employeeRepository.save(employee);
+        } else {
+            // Handle the case where the customer does not exist
+            throw new RuntimeException("Employee not found with ID: " + employee.getEmployeeID());
+        }
     }
 }

@@ -11,7 +11,7 @@
 <div class="container mt-3">
     <h2>Employee Management</h2>
     <div class="mb-3">
-        <a href="/employee/customers/new" class="btn btn-primary">Add New Employee</a>
+        <a href="/employee/employees/new" class="btn btn-primary">Add New Employee</a>
     </div>
     <div class="mb-3">
         <form id="searchForm" class="d-flex">
@@ -43,8 +43,8 @@
             <td th:text="${employee.position}"></td>
             <td th:text="${employee.location.getLocationID()}"></td>
             <td>
-                <a th:href="@{/employee/employee/edit/{id}(id=${employee.employeeID})}" class="btn btn-sm btn-outline-secondary">Edit</a>
-                <a th:href="@{/employee/employee/delete/{id}(id=${employee.employeeID})}" class="btn btn-sm btn-outline-danger">Delete</a>
+                <a th:href="@{/employee/employees/edit/{id}(id=${employee.employeeID})}" class="btn btn-sm btn-outline-secondary">Edit</a>
+                <a th:href="@{/employee/employees/delete/{id}(id=${employee.employeeID})}" class="btn btn-sm btn-outline-danger">Delete</a>
             </td>
         </tr>
         </tbody>

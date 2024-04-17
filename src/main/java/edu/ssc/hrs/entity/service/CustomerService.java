@@ -42,4 +42,30 @@ public class CustomerService {
         customerRepository.saveAll(customers);
     }
 
+    public void deleteById(Long id) {
+        customerRepository.deleteById(id);
+    }
+
+    // Get a customer by ID
+    public Customer getCustomerById(Long id) {
+        Optional<Customer> customerOptional = customerRepository.findById(id);
+
+        if (customerOptional.isPresent()) {
+            return customerOptional.get();
+        } else {
+            throw new RuntimeException("Customer not found with ID: " + id);
+        }
+    }
+
+    // Update a customer
+    public void updateCustomer(Customer customer) {
+        // Check if the customer exists in the database
+        if (customerRepository.existsById(customer.getCustomerID())) {
+            // Update the customer details
+            customerRepository.save(customer);
+        } else {
+            // Handle the case where the customer does not exist
+            throw new RuntimeException("Customer not found with ID: " + customer.getCustomerID());
+        }
+    }
 }
