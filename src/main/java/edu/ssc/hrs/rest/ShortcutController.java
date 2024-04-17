@@ -3,6 +3,7 @@ package edu.ssc.hrs.rest;
 import edu.ssc.hrs.entity.Order;
 import edu.ssc.hrs.entity.service.InventoryService;
 import edu.ssc.hrs.entity.service.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,6 @@ public class ShortcutController {
 
     private final InventoryService inventoryService;
     private final OrderService orderService;
-
 
 
     public ShortcutController(InventoryService inventoryService, OrderService orderService) {

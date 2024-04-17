@@ -2,9 +2,11 @@ package edu.ssc.hrs.entity.service;
 
 import edu.ssc.hrs.entity.Customer;
 import edu.ssc.hrs.entity.repository.CustomerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -39,4 +41,5 @@ public class CustomerService {
     public void saveAll(Iterable<Customer> customers) {
         customerRepository.saveAll(customers);
     }
+
 }
