@@ -16,6 +16,12 @@
         <a href="/employee/customers/new" class="btn btn-primary">Add New Customer</a>
     </div>
 
+    <div class="mb-3">
+        <form id="searchForm" class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput" style="width: 300px">
+        </form>
+    </div>
+
     <table class="table table-striped">
         <thead>
         <tr>
@@ -41,14 +47,44 @@
             <td th:text="${customer.state}"></td>
             <td th:text="${customer.zip_code}"></td>
             <td>
-                <a th:href="@{/employee/customers/edit/{id}(id=${customer.customerID})}"
-                   class="btn btn-sm btn-outline-secondary">Edit</a>
-                <a th:href="@{/employee/customers/delete/{id}(id=${customer.customerID})}"
-                   class="btn btn-sm btn-outline-danger">Delete</a>
+                <a th:href="@{/employee/customers/edit/{id}(id=${customer.customerID})}" class="btn btn-sm btn-outline-secondary">Edit</a>
+                <a th:href="@{/employee/customers/delete/{id}(id=${customer.customerID})}" class="btn btn-sm btn-outline-danger">Delete</a>
             </td>
         </tr>
         </tbody>
     </table>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var searchInput = document.getElementById('searchInput');
+
+        searchInput.addEventListener('input', function() {
+            searchCustomers();
+        });
+    });
+
+    function searchCustomers() {
+        var query = document.getElementById('searchInput').value.toLowerCase();
+
+        var rows = document.querySelectorAll('tbody tr');
+
+        rows.forEach(function(row) {
+            var shouldHide = true;
+            row.querySelectorAll('td').forEach(function(cell) {
+                if (cell.textContent.toLowerCase().includes(query)) {
+                    shouldHide = false;
+                }
+            });
+
+            if (shouldHide) {
+                row.style.display = 'none';
+            } else {
+                row.style.display = '';
+            }
+        });
+    }
+</script>
+
 </body>
 </html>

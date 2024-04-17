@@ -13,6 +13,13 @@
     <div class="mb-3">
         <a href="/employee/locations/new" class="btn btn-primary">Add New Location</a>
     </div>
+
+    <div class="mb-3">
+        <form id="searchForm" class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput" style="width: 300px">
+        </form>
+    </div>
+
     <table class="table table-striped">
         <thead>
         <tr>
@@ -43,5 +50,37 @@
         </tbody>
     </table>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var searchInput = document.getElementById('searchInput');
+
+        searchInput.addEventListener('input', function() {
+            searchLocations();
+        });
+    });
+
+    function searchLocations() {
+        var query = document.getElementById('searchInput').value.toLowerCase();
+
+        var rows = document.querySelectorAll('tbody tr');
+
+        rows.forEach(function(row) {
+            var shouldHide = true;
+            row.querySelectorAll('td').forEach(function(cell) {
+                if (cell.textContent.toLowerCase().includes(query)) {
+                    shouldHide = false;
+                }
+            });
+
+            if (shouldHide) {
+                row.style.display = 'none';
+            } else {
+                row.style.display = '';
+            }
+        });
+    }
+</script>
+
 </body>
 </html>
