@@ -2,6 +2,7 @@ package edu.ssc.hrs.rest;
 
 import edu.ssc.hrs.entity.Customer;
 import edu.ssc.hrs.entity.Employee;
+import edu.ssc.hrs.entity.Inventory;
 import edu.ssc.hrs.entity.service.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,11 +39,19 @@ public class EmployeeController {
         return "management-panels/inventory-management";
     }
 
-    @GetMapping("/orders")
-    public String manageOrders(Model model) {
-        model.addAttribute("orderList", orderService.findAll());
-        return "management-panels/order-management";
+    @GetMapping("/inventory/edit/{id}")
+    public String showEditInventoryForm(@PathVariable Long id, Model model) {
+        Inventory inventory = inventoryService.getInventoryById(id);
+        model.addAttribute("inventory", inventory);
+        return "/edit-inventory-form";
     }
+
+    @PostMapping("inventory/update")
+    public String updateInventory(@ModelAttribute("inventory") Inventory inventory) {
+        inventoryService.updateInventory(inventory);
+        return "redirect:/employee/inventory";
+    }
+
 
     @GetMapping("/customers")
     public String manageCustomers(Model model) {
@@ -62,6 +71,7 @@ public class EmployeeController {
         customerService.updateCustomer(customer);
         return "redirect:/employee/customers";
     }
+
 
     @GetMapping("/employees")
     public String manageEmployees(Model model) {
@@ -86,6 +96,12 @@ public class EmployeeController {
     public String manageLocations(Model model) {
         model.addAttribute("locationList", locationService.findAll());
         return "management-panels/location-management";
+    }
+
+    @GetMapping("/orders")
+    public String manageOrders(Model model) {
+        model.addAttribute("orderList", orderService.findAll());
+        return "management-panels/order-management";
     }
 
     @PostMapping("/orders/updateStatus")

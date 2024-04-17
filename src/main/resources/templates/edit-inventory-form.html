@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <title>Edit Inventory</title>
+</head>
+<body>
+
+<div class="container mt-5">
+  <h2>Edit Inventory</h2>
+
+  <form id="editInventoryForm" th:action="@{/employee/inventory/update}" method="post" th:object="${inventory}">
+    <input type="hidden" th:field="*{inventoryID}">
+
+    <div class="mb-3">
+      <label for="editQuantity" class="form-label">Quantity</label>
+      <input type="number" class="form-control" th:field="*{quantity}" id="editQuantity" name="quantity" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="editCost" class="form-label">Cost</label>
+      <input type="number" class="form-control" th:field="*{cost}" id="editCost" name="cost" step="0.01" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="editDescription" class="form-label">Description</label>
+      <input type="text" class="form-control" th:field="*{description}" id="editDescription" name="description" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="editSerialNumber" class="form-label">Serial Number</label>
+      <input type="text" class="form-control" th:field="*{serial_number}" id="editSerialNumber" name="serialNumber" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="editBrand" class="form-label">Brand</label>
+      <input type="text" class="form-control" th:field="*{brand}" id="editBrand" name="brand" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="editModel" class="form-label">Model</label>
+      <input type="text" class="form-control" th:field="*{model}" id="editModel" name="model" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="editListPrice" class="form-label">List Price</label>
+      <input type="text" class="form-control" th:field="*{list_price}" id="editListPrice" name="listPrice" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+</div>
+
+</body>
+</html>

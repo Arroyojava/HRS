@@ -40,4 +40,68 @@ public class Inventory {
 
     @Column(nullable = false)
     private String list_price;
+
+    public Long getInventoryID() {
+        return inventoryID;
+    }
+
+    public void setInventoryID(Long inventoryID) {
+        this.inventoryID = inventoryID;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public Double getCost() {
+        return cost;
+    }
+
+    public void setCost(Double cost) {
+        this.cost = cost;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getSerial_number() {
+        return serial_number;
+    }
+
+    public void setSerial_number(String serial_number) {
+        this.serial_number = serial_number;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public String getList_price() {
+        return list_price;
+    }
+
+    public void setList_price(String list_price) {
+        this.list_price = list_price;
+    }
 }

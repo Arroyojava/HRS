@@ -1,5 +1,6 @@
 package edu.ssc.hrs.entity.service;
 
+import edu.ssc.hrs.entity.Customer;
 import edu.ssc.hrs.entity.Inventory;
 import edu.ssc.hrs.entity.repository.InventoryRepository;
 import org.springframework.stereotype.Service;
@@ -29,6 +30,19 @@ public class InventoryService {
 
     public long count() {
         return inventoryRepository.count();
+    }
+
+    public Inventory getInventoryById(Long id) {
+        Optional<Inventory> inventoryOptional = inventoryRepository.findById(id);
+        if (inventoryOptional.isPresent()) {
+            return inventoryOptional.get();
+        } else {
+            throw new RuntimeException("Inventory not found for id: " + id);
+        }
+    }
+
+    public void updateInventory(Inventory inventory) {
+        inventoryRepository.save(inventory);
     }
 
 
