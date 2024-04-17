@@ -72,6 +72,18 @@ public class EmployeeController {
         return "redirect:/employee/customers";
     }
 
+    @PostMapping("/customers/save")
+    public String saveCustomer(@ModelAttribute Customer customer) {
+        customerService.saveCustomer(customer);
+        return "redirect:/employee/customers";
+    }
+
+    @GetMapping("/customers/new")
+    public String showAddCustomerForm(Model model) {
+        model.addAttribute("customer", new Customer());
+        return "add-customer";
+    }
+
 
     @GetMapping("/employees")
     public String manageEmployees(Model model) {
@@ -90,6 +102,18 @@ public class EmployeeController {
     public String updateEmployee(@ModelAttribute("employee") Employee employee) {
         employeeService.updateEmployee(employee);
         return "redirect:/employee/employees";
+    }
+
+    @PostMapping("/employees/save")
+    public String saveEmployee(@ModelAttribute Employee employee) {
+       employeeService.saveEmployee(employee);
+        return "redirect:/employee/employees";
+    }
+
+    @GetMapping("/employees/new")
+    public String showAddEmployeeForm(Model model) {
+        model.addAttribute("employee", new Employee());
+        return "add-employee";
     }
 
     @GetMapping("/locations")

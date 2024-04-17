@@ -47,6 +47,10 @@ public class EmployeeService {
         }
     }
 
+    public void saveEmployee(Employee employee) {
+        employeeRepository.save(employee);
+    }
+
     // Update a customer
     public void updateEmployee(Employee employee) {
         // Check if the customer exists in the database

@@ -57,6 +57,10 @@ public class CustomerService {
         }
     }
 
+    public void saveCustomer(Customer customer) {
+        customerRepository.save(customer);
+    }
+
     // Update a customer
     public void updateCustomer(Customer customer) {
         // Check if the customer exists in the database
